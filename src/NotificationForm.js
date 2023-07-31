@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 
 const NotificationForm = () => {
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async (data) => {
     try {
@@ -18,7 +18,7 @@ const NotificationForm = () => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="category">Category:</label>
-        <select name="category" ref={register({ required: true })}>
+        <select name="category" {...register('category', { required: true })}>
           <option value="SPORTS">Sports</option>
           <option value="FINANCE">Finance</option>
           <option value="MOVIES">Movies</option>
@@ -27,7 +27,7 @@ const NotificationForm = () => {
       </div>
       <div>
         <label htmlFor="message">Message:</label>
-        <textarea name="message" ref={register({ required: true })} />
+        <textarea name="message" {...register('message', { required: true })} />
         {errors.message && <span>Message is required</span>}
       </div>
       <button type="submit">Send Notification</button>

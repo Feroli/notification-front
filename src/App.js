@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import NotificationForm from './components/NotificationForm';
-import NotificationLog from './components/NotificationLog';
+import NotificationForm from './NotificationForm';
+import NotificationLog from './NotificationLog';
 
 function App() {
   return (
