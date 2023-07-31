@@ -7,7 +7,7 @@ const NotificationForm = () => {
 
   const onSubmit = async (data) => {
     try {
-      const response = await axios.post('/sendNotification', data);
+      const response = await axios.post('http://localhost:8080/sendNotification', data);
       console.log(response.data);
     } catch (error) {
       console.error(error);

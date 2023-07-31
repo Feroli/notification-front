@@ -10,7 +10,7 @@ const NotificationLog = () => {
 
   const fetchLogEntries = async () => {
     try {
-      const response = await axios.get('/sendNotification');
+      const response = await axios.get('http://localhost:8080/logs');
       setLogEntries(response.data);
     } catch (error) {
       console.error(error);
